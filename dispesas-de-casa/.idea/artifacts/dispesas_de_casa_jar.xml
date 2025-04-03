@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="dispesas-de-casa:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/dispesas_de_casa_jar</output-path>
+    <root id="archive" name="dispesas-de-casa.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../../../../GITHB/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="dispesas-de-casa" />
+    </root>
+  </artifact>
+</component>
