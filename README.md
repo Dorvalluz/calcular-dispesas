@@ -1,0 +1,2 @@
+# calcular-dispesas
+ Aplicação para Controle de Despesas  Descrição É um aplicativo Java com interface gráfica (GUI) desenvolvida com Swing. Ele permite que o usuário registre e acompanhe despesas mensais, calculando automaticamente o total gasto e a porcentagem de cada despesa em relação ao total. A aplicação suporta a colagem de valores diretamente da área de transferência (Ctrl + V) e fornece botões para calcular valores e limpar os campos.
