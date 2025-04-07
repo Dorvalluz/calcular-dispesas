@@ -1,6 +1,5 @@
-<p align="center">
-  <img src="https://img.icons8.com/color/96/expense.png" alt="Ícone de Despesas"/>
-</p>
+<img src="https://img.icons8.com/color/96/java-coffee-cup-logo.png" alt="Ícone do Java" />
+
 
 <h1 align="center">📊 Calcular Despesas</h1>
 
