@@ -1,7 +1,7 @@
 <img src="https://img.icons8.com/color/96/java-coffee-cup-logo.png" alt="Ícone do Java" />
 
 
-<h1 align="center">📊 Calcular Despesas</h1>
+<h1 align="center"> Calcular Despesas</h1>
 
 <p align="center">
   Aplicativo Java com GUI para registrar, calcular e acompanhar suas despesas mensais.
@@ -11,11 +11,11 @@
 
 ## 🧩 Funcionalidades
 
-- ✅ Registro de despesas por categoria  
-- ✅ Cálculo automático do total e das porcentagens  
-- ✅ Colagem rápida de valores com Ctrl + V  
-- ✅ Interface intuitiva com tabela e botões  
-- ✅ Limpeza rápida dos valores inseridos
+-  Registro de despesas por categoria  
+-  Cálculo automático do total e das porcentagens  
+-  Colagem rápida de valores com Ctrl + V  
+-  Interface intuitiva com tabela e botões  
+-  Limpeza rápida dos valores inseridos
 
 ---
 
@@ -27,9 +27,9 @@
 
 ---
 
-## 💻 Como Funciona o Código
+##  Como Funciona o Código
 
-### 🎨 Interface Gráfica (Swing)
+###  Interface Gráfica (Swing)
 
 A aplicação usa um `JFrame` com um `JTable` e dois botões principais:
 
@@ -37,9 +37,9 @@ A aplicação usa um `JFrame` com um `JTable` e dois botões principais:
 - **Limpar Valores**
 
 A tabela possui três colunas:
-- 📝 **Descrição:** Nome da despesa  
-- 💰 **Valor (R$):** Valor gasto  
-- 📈 **Porcentagem:** Percentual em relação ao total
+-  **Descrição:** Nome da despesa  
+-  **Valor (R$):** Valor gasto  
+-  **Porcentagem:** Percentual em relação ao total
 
 ---
 
@@ -64,13 +64,13 @@ O botão **"Calcular Total e Porcentagem"**:
 
 ---
 
-### 💡 Formatação Brasileira
+###  Formatação Brasileira
 
 Os valores são exibidos no padrão nacional: **R$ 1.200,00**, facilitando a leitura.
 
 ---
 
-## 🚀 Como Executar o Projeto
+##  Como Executar o Projeto
 
 ### 📌 Pré-requisitos:
 - Java 8 ou superior instalado
