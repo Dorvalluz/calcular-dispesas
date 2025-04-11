@@ -8,7 +8,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.util.Locale;
 
 public class ExpenseTracker {
@@ -36,9 +35,9 @@ public class ExpenseTracker {
                 {"PERFUMARIA", "", ""},
                 {"ACADEMIA", "", ""},
                 {"SERVIÇO DE STREAMING", "", ""},
-                {"REMEDIOS", "", ""},
+                {"LIVROS", "", ""},
                 {"CURSOS", "", ""},
-                {"TOTAL", "R$ 0,00", "100%"} // Linha para o total
+                {"TOTAL", "R$ 0,00", "100%"}
         };
 
         DefaultTableModel model = new DefaultTableModel(data, columnNames);
@@ -90,38 +89,52 @@ public class ExpenseTracker {
 
     private static void calcularTotal(DefaultTableModel model) {
         double total = 0;
-        NumberFormat format = NumberFormat.getInstance(new Locale("pt", "BR"));
 
+        // Etapa 1: Somar todos os valores
         for (int i = 0; i < model.getRowCount() - 1; i++) {
             try {
-                String valueStr = model.getValueAt(i, 1).toString().replace("R$", "").replace(".", "").replace(",", ".").trim();
-                if (!valueStr.isEmpty()) {
-                    total += Double.parseDouble(valueStr);
+                String valorStr = model.getValueAt(i, 1).toString()
+                        .replace("R$", "")
+                        .replace(".", "")
+                        .replace(",", ".")
+                        .trim();
+
+                if (!valorStr.isEmpty()) {
+                    total += Double.parseDouble(valorStr);
                 }
-            } catch (Exception ignored) {
-                // Ignora erros de conversão
+            } catch (Exception e) {
+                // Ignora conversão inválida
             }
         }
 
-        // Define o total corretamente formatado
+        // Exibir o total formatado
         DecimalFormat df = new DecimalFormat("#,##0.00");
-        model.setValueAt("R$ " + df.format(total).replace(".", ","), model.getRowCount() - 1, 1);
+        String totalFormatado = "R$ " + df.format(total).replace(".", ",");
+        model.setValueAt(totalFormatado, model.getRowCount() - 1, 1);
 
-        // Calcular porcentagem
+        // Etapa 2: Calcular porcentagem de cada item
         for (int i = 0; i < model.getRowCount() - 1; i++) {
             try {
-                String valueStr = model.getValueAt(i, 1).toString().replace("R$", "").replace(".", "").replace(",", ".").trim();
-                if (!valueStr.isEmpty() && total > 0) {
-                    double value = Double.parseDouble(valueStr);
-                    double percentage = (value / total) * 100;
-                    model.setValueAt(String.format("%.2f%%", percentage), i, 2);
+                String valorStr = model.getValueAt(i, 1).toString()
+                        .replace("R$", "")
+                        .replace(".", "")
+                        .replace(",", ".")
+                        .trim();
+
+                if (!valorStr.isEmpty() && total > 0) {
+                    double valor = Double.parseDouble(valorStr);
+                    double porcentagem = (valor / total) * 100;
+                    model.setValueAt(String.format("%.2f%%", porcentagem), i, 2);
                 } else {
                     model.setValueAt("0.00%", i, 2);
                 }
-            } catch (Exception ignored) {
+            } catch (Exception e) {
                 model.setValueAt("0.00%", i, 2);
             }
         }
+
+        // Linha TOTAL sempre 100%
+        model.setValueAt("100%", model.getRowCount() - 1, 2);
     }
 
     private static void pasteClipboardData(DefaultTableModel model) {
